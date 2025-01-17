@@ -1,0 +1,242 @@
+:root {
+    --main-color: rgb(57, 102, 131);
+    --main-color-light: rgb(240, 248, 255);
+    --main-color-dark: rgb(30, 30, 30);
+    --button-text-light: rgb(19, 125, 180);
+    --button-text-dark: rgb(97, 132, 151);
+    --color-dark: rgba(12, 90, 141, 0.89);
+    --color-light: rgba(182, 205, 227, 0.86);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: light dark;
+}
+
+body {
+    background: light-dark(var(--main-color-light), var(--main-color-dark));
+    color: light-dark(var(--main-color-dark), var(--main-color-light));
+    height: 100vh;
+    width: 100%;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+}
+
+header {
+    width: 100%;
+    height: 8%;
+    max-height: 170px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    color: light-dark(var(--main-color-light), var(--main-color-dark));
+    background: light-dark(var(--main-color-dark), var(--main-color-light));
+}
+
+#identity {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#identity img {
+    width: 50%;
+    height: 100%;
+    min-width: 50px;
+    min-height: 50px;
+    background: var(--button-text-dark);
+    clip-path: circle();
+    padding: 5px;
+}
+
+#name {
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav a {
+    color: inherit;
+    font-size: 1.2em;
+    animation: all 0.3s;
+}
+
+nav a:hover {
+    color: light-dark(var(--button-text-dark), var(--button-text-light));
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#home {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+}
+
+#projects,
+#experience,
+#education {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    border: 1px solid light-dark(var(--main-color-dark), var(--main-color-light));
+}
+
+#projects div,
+#experience div,
+#education div {
+    width: 100%;
+    height: 100%;
+    border-bottom: inherit;
+    padding: 20px 10px;
+}
+
+#education {
+    padding: 0 10px;
+}
+
+#education p {
+    margin: 10px 0;
+}
+
+#projects div:nth-last-child(1),
+#experience div:nth-last-child(1),
+#education div:nth-last-child(1) {
+    border: none;
+}
+
+.project {
+    height: 100%;
+    text-align: center;
+}
+
+.grid div h3 {
+    margin-top: 10px;
+}
+
+.work-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.work a {
+    font-size: 1.1em;
+}
+
+#list-course-title {
+    width: 100%;
+}
+
+ul {
+    list-style-position: inside;
+    list-style-type: "- ";
+}
+
+#reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 10px;
+}
+
+#reviews .grid {
+    gap: 10px;
+}
+
+#reviews .review-container {
+    padding: 10px;
+    border: 1px solid light-dark(var(--main-color-dark), var(--main-color-light));
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reviewer {
+    color: light-dark(var(--color-dark), var(--color-light));
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (width < 940px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+
+}
+
+@media (width < 500px) {
+    header {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 20%;
+        min-height: 130px;
+    }
+
+    #identity {
+        width: 100%;
+        height: 50%;
+        margin-top: 10px;
+        gap: 0;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    #identity img {
+        height: 70%;
+    }
+
+    nav {
+        margin: 10px 0;
+    }
+
+    main {
+        margin-top: 35%;
+    }
+
+    #projects div:nth-child(2),
+    #experience div:nth-child(2) {
+        border-top: inherit;
+    }
+
+}
